@@ -1,12 +1,44 @@
-h1, p{
-  text-align: center;
+.color {
+  background-color: yellow;
 }
-li:hover {
-  background-color: yellowgreen;
+ol li:nth-of-type(odd) {
+  text-transform: uppercase;
+  font-weight: bold;
 }
-li:active {
-  font-size: larger;
+ol li:nth-of-type(even) {
+  color: green;
+  font-weight: bold;
 }
-ul, ol {
-  list-style: none;
+.header {
+  color: red;
+
+}
+.em {
+  size: 40px;
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
+}
+li {
+  font-size: 20px;
+}
+ul > li {
+  color: blue;
+  
+}
+.laranja:hover {
+  color: orange;
+  font-weight: bold;
+}
+.verde:hover {
+  color: green;
+  font-weight: bold;
+}
+.preta:hover {
+  color: black;
+  font-weight: bold;
+}
+.amarela:hover {
+  color: yellow;
+  font-weight: bold;
 }
