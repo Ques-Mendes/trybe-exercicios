@@ -4,7 +4,30 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <title>Exercício 5.1</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+          main, section {
+        border-color: black;
+        border-style: solid;
+      }
+
+      .title {
+        text-align: center;
+      }
+
+      .main-content {
+        background-color: yellow;
+      }
+
+      .main-content .center-content {
+        background-color: red;
+        width: 50%;
+        margin: 0 auto;
+      }
+
+      .main-content .center-content p {
+        font-style: italic;
+      }
+    </style>
   </head>
   <body>
     <header> 
@@ -18,11 +41,11 @@
       </section>
     </main>
     <script>
-        document.getElementsByTagName("p")[1].innerText = "DEV";
-        document.getElementsByClassName(".main-content").style = "background-color: rgb 76,164,109";
-        document.getElementsByClassName(".main-content .center-content").style = "background-color: white";
+        document.getElementsByTagName("p")[1].innerText = "Dev";
+        document.getElementsByClassName("main-content").style.backgroundColor = "76,164,109";
+        document.getElementsByClassName("main-content .center-content")[1].style.backgroundColor = "white";
         document.getElementsByTagName("h1")[0].innerText = "Exercício 5.1 - JavaScript";
-        document.getElementsByTagName("p")[0,1,2].style = "text-transform: uppercase";
+        document.getElementsByTagName("p")[0].style.textTransform = "uppercase";
         console.log(document.getElementsByTagName("p").innerText);
         /*
         Aqui você vai modificar os elementos já existentes utilizando apenas as funções:
@@ -40,27 +63,3 @@
   </body>
 </html>
 
-<!-- 
-main, section {
-    border-color: black;
-    border-style: solid;
-  }
-
-  .title {
-    text-align: center;
-  }
-
-  .main-content {
-    background-color: yellow;
-  }
-
-  .main-content .center-content {
-    background-color: red;
-    width: 50%;
-    margin: 0 auto;
-  }
-
-  .main-content .center-content p {
-    font-style: italic;
-  }
- -->  
