@@ -41,12 +41,19 @@
       </section>
     </main>
     <script>
-        document.getElementsByTagName("p")[1].innerText = "Dev";
-        document.getElementsByClassName("main-content").style.backgroundColor = "76,164,109";
-        document.getElementsByClassName("main-content .center-content")[1].style.backgroundColor = "white";
+        document.getElementsByTagName("p")[0].innerText = "I see myself as a Web Development Senior!";
+        document.getElementsByTagName("p")[1].innerText = "This would happen in two years.";
+        document.getElementsByTagName("p")[2].innerText = "A big thanks to Trybe";  
+
+        document.getElementsByClassName("main-content")[0].style.backgroundColor = "rgb(76,164,109)";   
+
+        document.getElementsByClassName("center-content")[0].style.backgroundColor = "white";
+
         document.getElementsByTagName("h1")[0].innerText = "Exercício 5.1 - JavaScript";
-        document.getElementsByTagName("p")[0].style.textTransform = "uppercase";
-        console.log(document.getElementsByTagName("p").innerText);
+
+        document.getElementsByClassName("center-content")[0].style.textTransform = "uppercase";
+     
+        console.log(document.getElementsByClassName("center-content")[0].innerText);
         /*
         Aqui você vai modificar os elementos já existentes utilizando apenas as funções:
         - document.getElementById()
