@@ -66,8 +66,13 @@
       document.body.appendChild(main);
       
       let section = document.createElement('section');
-      section.classList.add('center-content')
-      document.main.appendChild(section);
+      section.classList = 'center-content';
+      main.appendChild(section);
+
+      let paragraph = document.createElement('p');
+      paragraph.innerHTML = "Manipulando elementos com DOM.";
+      section.appendChild(paragraph);
+      
     </script>
   </body>
 </html>
