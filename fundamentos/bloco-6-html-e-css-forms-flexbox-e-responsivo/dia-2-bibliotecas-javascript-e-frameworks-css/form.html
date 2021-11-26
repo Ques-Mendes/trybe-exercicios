@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de currículo</title>
+    <link rel="stylesheet" href="bootstrap-5.1.3-dist/css/bootstrap-reboot.min.css">
+    <script src="jquery-3.6.0.min.js"></script>
+    <script src="bootstrap-5.1.3-dist/js/bootstrap.min.js"></script>    
+</head>
+<body>
+    <h1>Currículo</h1>
+    <form action="">
+        <fieldset>
+            <legend>Dados pessoais:</legend>
+           <label for="name">Nome</label>
+           <input
+           type="text"
+           name="nome" 
+           id="name" 
+           required>
+           <label for="input-email">E-mail</label>
+           <input 
+           type="email"
+           name="email" 
+           id="input-email" 
+           required>
+           <label for="cpf">CPF</label>
+           <input 
+           type="text"
+           name="cpf"
+           id="cpf" 
+           required>
+           <label for="endereço">Endereço</label>
+           <input 
+           type="text"
+           name="endereço" 
+           id="endereço" 
+           required>
+           <label for="cidade">Cidade</label>
+           <input 
+           type="text"
+           name="cidade" 
+           id="cidade" 
+           required> 
+           <label for="estado">Estado</label>
+           <select name="estado" id="input-estado" required>
+               <option value=""></option>
+           </select>        
+           <label for="tipo-casa">Casa</label>
+           <input 
+           type="radio"
+           name="tipo" 
+           id="tipo-casa" 
+           required>
+           <label for="tipo-apt">Apartamento</label>
+           <input 
+           type="radio"
+           name="tipo" 
+           id="tipo-apt"
+           required>  
+        </fieldset>
+        <fieldset>
+            <p>Resumo do currículo:</p>
+            <textarea name="resumo" id="area-resumo" cols="30" rows="5" required></textarea>
+            <p>Cargo:</p>
+            <textarea name="cargo" id="cargo" cols="30" rows="1"required></textarea>
+            <p>Decrição do cargo:</p>
+            <textarea name="descrição" id="decrição-cargo" cols="30" rows="5"required></textarea>
+            <label for="data">Data de início</label>
+            <input type="text" id="data" name="data" required>
+        </fieldset>
+        
+    </form>
+</body>
+</html>
