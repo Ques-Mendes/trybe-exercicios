@@ -18,6 +18,23 @@ console.log(newEmployees(employeeRegister));
 const checkNumber = (betNumber, drawnNumber) => betNumber === drawnNumber;
 const lotteryResult = (betNumber, called) => {
     const number = Math.floor(Math.random() * 5);
-    return called(betNumber, number) ? 'Parabéns você ganhou!!!!' : 'Tente novamente!!!';
+    if (betNumber, number) {
+        return 'Parabéns você ganhou!!!!'; 
+    } return 'Tente novamente!!!';
+    //return called(betNumber, number) ? 'Parabéns você ganhou!!!!' : 'Tente novamente!!!'; (Ternary Operator)
 };
-console.log(lotteryResult(6,checkNumber));
+console.log(lotteryResult(8,checkNumber));
+
+// Exercise 3
+const RIGHT_ANSWERS = ['A', 'C', 'B', 'D', 'A', 'A', 'D', 'A', 'D', 'C'];
+const STUDENT_ANSWERS = ['A', 'N.A', 'B', 'D', 'A', 'C', 'N.A', 'A', 'D', 'B'];
+
+const checker = (rightAnswers, studentAnswers, selector) => {
+  let counter = 0;
+  for (let i = 0; i < rightAnswers.length; i += 1) {
+    const selectorReturn = selector(rightAnswers[i], studentAnswers[i]);
+    counter += selectorReturn;
+  }
+  return `Resultado final: ${counter} corretas`;
+};
+
