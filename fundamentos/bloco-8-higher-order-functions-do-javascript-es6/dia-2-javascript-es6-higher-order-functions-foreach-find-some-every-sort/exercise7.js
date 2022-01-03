@@ -65,5 +65,5 @@ const books = [
 const expectedResult = false;
 
 function authorUnique() {
-  return books.every((book) => );
+  return books.every((book) => book.author.birthYear === book.author.birthYear);
 }
