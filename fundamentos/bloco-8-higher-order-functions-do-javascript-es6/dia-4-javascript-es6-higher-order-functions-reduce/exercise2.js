@@ -69,3 +69,4 @@ function reduceNames() {
     return `${books.author.name},`;
   }, '');
 }
+console.log(reduceNames(books));
