@@ -5,5 +5,6 @@ const arrays = [
 ];
 
 function flatten() {
-  // escreva seu código aqui
+  return arrays.reduce((acumulador, current) => acumulador.concat(current), []);
 }
+// console.log(flatten(arrays));
