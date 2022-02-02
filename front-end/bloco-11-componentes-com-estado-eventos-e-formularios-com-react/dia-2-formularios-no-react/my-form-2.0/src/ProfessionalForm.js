@@ -2,33 +2,38 @@ import React from "react";
 
 class ProfessionalForm extends React.Component {
     render() {
+        const { changeHandler } = this.props;
         return (
             <fieldset>
                 <legend>Dados Professionais</legend>
-                <div>
+                <div className="container">
                     Resumo do currículo:
                     <textarea
                     name="resume"
                     maxLength="1000"
                     required
+                    onChange={ changeHandler } 
                     />
                 </div>
-                <div>
+                <div className="container">
                     Cargo:
-                    <textarea                    
+                    <input
+                    type="text"                   
                     name="role"
                     maxLength="40"
                     required
+                    onChange={ changeHandler } 
                     onMouseEnter={() => {
                         alert('Preencha com cuidado esta informação');
                     }}
                     />
                 </div>
-                <div>
+                <div className="container">
                     Descrição do cargo:
                     <textarea
                     name="roleDescription"
                     maxLength="500"
+                    onChange={ changeHandler } 
                     />                    
                 </div>
             </fieldset>
