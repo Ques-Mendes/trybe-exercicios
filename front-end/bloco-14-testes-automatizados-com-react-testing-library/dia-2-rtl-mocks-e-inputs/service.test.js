@@ -1,4 +1,5 @@
 const service = require("./service");
+
 describe("Testes de implementações", () => {
   test("Com mock função recebe 3 parâmetros e retorna a multiplicação dos mesmos", () =>{
     service.randomNumber = jest.fn().mockImplementationOnce((a,b,c) => a * b * c);
@@ -21,6 +22,7 @@ describe("Testes de implementações", () => {
     expect(service.randomNumber).toHaveBeenCalledWith(2);
   });
 });
+
 describe("Teste de implementações com mock ex 4", () => {
   test("Ao receber uma str a retorna em caixa baixa", () => {
     const firstFunction = jest.spyOn(service, "firstF").mockImplementation(a => a.toLowerCase());
@@ -46,4 +48,26 @@ describe("Teste de implementações com mock ex 4", () => {
 
       expect(service.firstF("lowercase")).toBe("LOWERCASE");
   })
+});
+
+describe("Testes para a api dog pictures", () => {
+  service.fetchDog = jest.fn();
+  afterEach(service.fetchDog.mockReset);
+
+  test("Teste se a promisse for resolvida", async () => {
+    service.fetchDog.mockResolvedValue("request sucess");
+    service.fetchDog();
+
+    expect(service.fetchDog).toHaveBeenCalled();
+    expect(service.fetchDog).toHaveBeenCalledTimes(1);
+    await expect(service.fetchDog()).resolves.toBe("request sucess");
+    expect(service.fetchDog).toHaveBeenCalledTimes(2);
+  });
+   test("Teste se a promisse for rejeitada", async () => {
+    service.fetchDog.mockRejectedValue("request failed");
+
+    expect(service.fetchDog).toHaveBeenCalledTimes(0);
+    await expect(service.fetchDog()).rejects.toMatch("request failed");
+    expect(service.fetchDog).toHaveBeenCalledTimes(1);
+   });  
 });

@@ -13,9 +13,19 @@ const secondF = (str) => str.charAt(0);
 // https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String/concat
 const thirdF = (str1, str2) => str1.concat(str2);
 
+// Crie uma função que faça requisição para a api dog pictures .
+function fetchDog() {
+  return fetch("https://dog.ceo/api/breeds/image/random")
+   .then(response => response.json()
+   .then(json => response.ok ? Promise.resolve(json) : Promise.reject(json)
+   )
+  );
+}
+
 module.exports = {
     randomNumber,
     firstF,
     secondF,
     thirdF,
+    fetchDog,
 };
