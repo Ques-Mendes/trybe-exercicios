@@ -21,3 +21,29 @@ describe("Testes de implementações", () => {
     expect(service.randomNumber).toHaveBeenCalledWith(2);
   });
 });
+describe("Teste de implementações com mock ex 4", () => {
+  test("Ao receber uma str a retorna em caixa baixa", () => {
+    const firstFunction = jest.spyOn(service, "firstF").mockImplementation(a => a.toLowerCase());
+
+    expect(firstFunction("UPPERCASE")).toBe("uppercase");
+    expect(service.firstF).toHaveBeenCalledWith("UPPERCASE");
+  })
+  test("Ao receber uma str retorna a última letra", () => {
+      // índice do último caractere em uma string declarada 'length-1'
+      const secondFunction = jest.spyOn(service, "secondF").mockImplementation(a => a.charAt(a.length - 1));
+
+      expect(secondFunction("letter")).toBe("r");
+      expect(service.secondF).toHaveBeenCalledWith("letter");
+  })
+  test("Ao receber 3 str deve concatená-las", () => {
+      const thirdFunction = jest.spyOn(service, "thirdF").mockImplementation((a, b, c) => a.concat(b, c));
+
+      expect(thirdFunction("Que", "si", "a")).toBe("Quesia");
+      expect(service.thirdF).toHaveBeenCalledWith("Que", "si", "a");
+  });
+  test("Restaura a primeira função e vrifica se ela retorna caixa alta", () => {
+      service.firstF.mockRestore();
+
+      expect(service.firstF("lowercase")).toBe("LOWERCASE");
+  })
+});
