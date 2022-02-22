@@ -38,7 +38,7 @@
       // 3 - Crie actions que alterem o nome e o sobrenome dos estados iniciais, e adapte seu respectivo reducer.
       const meuPrimeiroReducer = (state = ESTADO_INICIAL_1, action) => {
         switch (action.type) {
-          case 'CHANGE_NAME_AND_LASTNAME':
+          case 'CHANGE_FIRST_NAME_AND_LASTNAME':
           return {
             ...state,
             nome: action.nome,
@@ -51,7 +51,7 @@
 
       const meuSegundoReducer = (state = ESTADO_INICIAL_2, action) => {
         switch (action.type) {
-          case 'CHANGE_NAME_AND_LASTNAME':
+          case 'CHANGE_SECOND_NAME_AND_LASTNAME':
           return {
             ...state,
             nome: action.nome,
@@ -70,14 +70,14 @@
         setTimeout(() => {
           //Seu dispatch vem aqui //
           store.dispatch({
-            type: 'CHANGE_NAME_AND_LASTNAME',
+            type: 'CHANGE_FIRST_NAME_AND_LASTNAME',
             nome: 'Quesia',
             sobrenome: 'Mendes',
           });
           store.dispatch({
-            type: 'CHANGE_NAME_AND_LASTNAME',
+            type: 'CHANGE_SECOND_NAME_AND_LASTNAME',
             nome: 'Ludmila',
-            sobrenom: 'Abreu',
+            sobrenome: 'Abreu',
           })
         }, 3000);
       };
@@ -86,10 +86,10 @@
       store.subscribe(() => {
         const { meuPrimeiroReducer, meuSegundoReducer } = store.getState();
         document.getElementById('nome-1').innerHTML = meuPrimeiroReducer.nome;
-        document.getElementById('nome-1').innerHTML = meuPrimeiroReducer.sobrenome;
+        document.getElementById('sobrenome-1').innerHTML = meuPrimeiroReducer.sobrenome;
 
         document.getElementById('nome-2').innerHTML = meuSegundoReducer.nome;
-        document.getElementById('nome-2').innerHTML = meuSegundoReducer.sobrenome;
+        document.getElementById('sobrenome-2').innerHTML = meuSegundoReducer.sobrenome;
       })
     </script>
   </body>
