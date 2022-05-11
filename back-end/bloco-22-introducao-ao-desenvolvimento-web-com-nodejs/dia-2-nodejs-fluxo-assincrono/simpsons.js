@@ -47,6 +47,7 @@ async function main() {
 }
 main(); */
 
+/* Crie uma função que leia o arquivo simpsons.json e crie um novo arquivo, chamado simpsonFamily.json, contendo as personagens com id de 1 a 4.
 async function simpsonFamily() {
   const fileContent = await fs.readFile('./simpsons.json', 'utf-8')
   const simpsons = JSON.parse(fileContent);
@@ -57,6 +58,19 @@ async function simpsonFamily() {
 
 async function main() {
   const simpson = await simpsonFamily();
+  console.log(simpson);
+}
+main(); */
+
+async function addingName() {
+  const fileContent = await fs.readFile('./simpsonsFamily.json', 'utf-8');
+  const simpsonsFamily = JSON.parse(fileContent);
+  simpsonsFamily.push({ id: '8', name: 'Nelson Muntz' });
+  await fs.writeFile('./simpsonsFamily.json', JSON.stringify(simpsonsFamily));
+}
+
+async function main() {
+  const simpson = await addingName();
   console.log(simpson);
 }
 main();
