@@ -21,6 +21,11 @@ app.post('/greetings', (req, res) => {
   return res.status(200).json({ message: `Hello, ${name}!` });
 });
 
+app.put('/users/:name/:age', (req, res) => {
+  const { name, age } = req.body;
+  return res.status(200).json({ "message": `Seu nome é ${name} e você tem ${age} anos de idade` });
+}); // Cannot GET /users
+
 
 
 app.listen(3000, () => console.log('ouvindo na porta 3000!'));
