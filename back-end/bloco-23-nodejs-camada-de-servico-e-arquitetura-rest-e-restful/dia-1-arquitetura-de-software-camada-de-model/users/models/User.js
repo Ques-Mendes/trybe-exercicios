@@ -14,7 +14,28 @@ function create({ firstName, lastName, email, password }) {
   return connection.execute(query, [firstName, lastName, email, password])
   .then(([result]) => ({ id: result.insertId, firstName, lastName, email }));
 }
+
+function findAll() {
+  return connection.execute('SELECT * FROM users;')
+  .then(([results]) => results.map(formatUser));
+}
+function findById(id) {
+  return connection.execute('SELECT * FROM users WHERE id = ?', [id]).then(([results]) => {
+    if (results[0]) return formatUser(results[0]);
+    return null;
+  });
+}
+
+async function updateUser(id, { firstName, lastName, email, password }) {
+  const query = `UPDATE users SET first_name = ?, last_name = ?, mail = ?, password = ?`;
+  await connection.execute(query, [firstName, lastName, email, password, id]);
+  return findById(id);
+}
+
 module.exports = {
   formatUser,
   create,
+  findAll,
+  findById,
+  updateUser,
 };
