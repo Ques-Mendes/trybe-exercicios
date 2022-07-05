@@ -1,38 +1,40 @@
-type Character = {
-  nickname: string
-  class: string
-  stats: { agi: number, str: number, int: number, hp: number, mp: number }
-  statscreatdAt: Date
+import readline from "readline-sync";
+import months from "./months";
+import seasons from "./seasons";
+
+const monthsNames = Object.keys(months);
+console.log(months);
+
+const choiceMonth = readline.keyInSelect(monthsNames, "Choose a month");
+
+const seasonsNorth = {
+  [seasons.autumn]: [months.September, months.October, months.November, months.December],
+  [seasons.winter]: [months.December, months.January, months.February, months.March],
+  [seasons.spring]: [months.March, months.April, months.May, months.June],
+  [seasons.summer]: [months.June, months.July, months.August, months.September],
+}
+const seasonsSouth = {
+  [seasons.autumn]: seasonsNorth[seasons.spring],
+  [seasons.winter]: seasonsNorth[seasons.summer],
+  [seasons.spring]: seasonsNorth[seasons.autumn],
+  [seasons.summer]: seasonsNorth[seasons.winter],
 }
 
-const characters: any = [
-  {
-    nickname: 'xKillerx',
-    class: 'warrior',
-    stats: { agi: 50, str: 100, int: 25, hp: 1000, mp: 300 },
-    createdAt: new Date('2003-10-1')
-  },
-  {
-    nickname: 'jainaProud',
-    class: 'mage',
-    stats: { agi: 80, str: 40, int: 150, hp: 630, mp: 1100 },
-    createdAt: new Date('2003-10-2')
-  },
-  {
-    nickname: 'catIn',
-    class: 'hunter',
-    stats: { agi: 150, str: 90, int: 80, hp: 800, mp: 600 },
-    createdAt: new Date('2003-10-15')
-  },
-]
-
-function printCharacter(character: any, index: number) {
-  const { nickname, class: cls, createdAt } = character;
-
-  console.log(`\n\n===== Character: ${index + 1} ========`);
-  console.log(`nickname: ${nickname}
-class: ${cls}
-createdAt: ${createdAt}`);
+const hemispheres = {
+  "North": seasonsNorth,
+  "South": seasonsSouth,
 }
 
-characters.forEach(printCharacter);
+const choiceHemisphere = readline.keyInSelect(Object.keys(hemispheres), "Choose a hemisphere");
+
+const month = Object.keys(months)[choiceMonth];
+const hemisphere = Object.keys(hemispheres)[choiceHemisphere];
+
+const hemisphereSeasons = Object.keys(hemispheres)[choiceHemisphere];
+Object.entries(hemisphereSeasons).map((entry) => {
+  const seasons = entry[0];
+  const months = entry[1];
+
+  if (months.includes(month))console.log(seasons);  
+});
+  
