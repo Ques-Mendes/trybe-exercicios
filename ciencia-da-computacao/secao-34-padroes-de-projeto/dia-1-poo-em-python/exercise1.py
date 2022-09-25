@@ -12,7 +12,7 @@ class TV:
     def diminuir_volume(self):
         if self.__volume >= 0:
             self.__volume -= 1
-    
+
     def modificar_canal(self, canal):
         if canal < 1 or canal > 99:
             raise ValueError("Canal indisponível")
